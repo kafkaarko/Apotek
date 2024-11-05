@@ -56,8 +56,18 @@ Route::middleware(['IsAdmin'])->group(function(){
     });
 
 });
+
+Route::prefix('/kasir')->name('kasir.')->group(function() {
+    Route::prefix('/order')->name('order.')->group(function() {
+        Route::get('/pemebelian', [OrderController::class, 'index'])->name('index');
+        Route::get('/create', [OrderController::class, 'create'])->name('create');
+        Route::post('/store', [OrderController::class, 'store'])->name('store');
+        Route::get('/print/{id}', [OrderController::class, 'show'])->name('print');
+    });
+});
 });
 
-Route::get('/pembelian',[OrderController::class,'index'])->name('pembelian');
-Route::get('/pembelian/create',[OrderController::class,'create'])->name('tambah.pembelian');
-Route::post('/pembelian/beli',[OrderController::class,'store'])->name('beli.store');
+// Route::get('/pembelian',[OrderController::class,'index'])->name('pembelian');
+// Route::get('/pembelian/create',[OrderController::class,'create'])->name('tambah.pembelian');
+// Route::post('/pembelian/beli',[OrderController::class,'store'])->name('beli.store');
+// Route::post('/print/{id}',[OrderController::class,'show'])->name('print');

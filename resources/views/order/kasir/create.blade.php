@@ -1,15 +1,16 @@
 @extends('layouts.layout')
 @section('content')
     <div class="container mt-3">
-        <form action="{{ route('beli.store') }}" method="post" class="card m-auto p-5">
+        <form action="{{ route('kasir.order.store') }}" method="post" class="card m-auto p-5">
             @csrf
             @if ($errors->any())
-                <ul class="alert alert-danger p-3">
-                    @foreach ($errors as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            @endif
+            <ul class="alert alert-danger p-3">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
+        
             @if (Session::get('failed'))
                 <div class="alert alert-danger">{{ Session::get('failed') }}</div>
             @endif
@@ -17,7 +18,7 @@
             <div class="mb-3 row">
                 <label for="nama_customer" class="col-sm-2 col-form-label">Nama Pembelian</label>
                 <div class="col-sm-10">
-                    <input type="text" name="name_customer" id="name_customer" class="form-control">
+                    <input type="text" name="name_costumer" id="name_costumer" class="form-control">
                 </div>
             </div>
             <div class="mb-3 row">

@@ -32,7 +32,7 @@
                   </li>
                   @endif
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ route('pembelian') }}">Pembelian</a>
+                    <a class="nav-link" aria-current="page" href="{{ route('kasir.order.index') }}">Pembelian</a>
                   </li>
                   @if(Auth::user()->role == 'admin')
                   <li class="nav-item">

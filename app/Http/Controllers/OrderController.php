@@ -65,13 +65,17 @@ class OrderController extends Controller
         $proses = Order::create([
             'user_id' => Auth::user()->id,
             'medicines' => $arrayMedicines,
-            'name_costumer' => $request->name_customer,
+            'name_costumer' => $request->name_costumer,
             'total_price' => $pricePpn
         ]);
 
         if($proses)
         {
-            $order = Order::where('user_id',Auth::user()->id)->orderBy('created_at','DESC');
+            $order = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->first();
+            return redirect()->route('kasir.order.print', $order->id);
+
+        }else{
+            return redirect()->back()->with('failed','gagal membuat data pembelian');   
         }
     }
 
@@ -79,9 +83,10 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Order $order)
+    public function show(Order $order,$id)
     {
-        //
+        $order = Order::find($id);
+        return view('order.kasir.print',compact('order'));
     }
 
     /**
