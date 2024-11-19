@@ -15,4 +15,6 @@ class Akun extends Model
         'password',
         'role',
     ];
+
+    
 }

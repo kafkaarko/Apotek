@@ -6,7 +6,7 @@
         <title>Apoteker App</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     </head>
-    <body>
+    <body onload="reset()">
 
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
@@ -33,6 +33,9 @@
                   @endif
                   <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{ route('kasir.order.index') }}">Pembelian</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ route('kasir.order.data') }}"> Daftar Pembelian</a>
                   </li>
                   @if(Auth::user()->role == 'admin')
                   <li class="nav-item">

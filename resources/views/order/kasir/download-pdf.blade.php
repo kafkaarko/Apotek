@@ -67,11 +67,11 @@
     </style>
 </head>
 <body>
-    <div id="back-wrap">
+    {{-- <div id="back-wrap">
         <a href="{{ route('kasir.order.index') }}" class="btn-back">Kembali</a>
-    </div>
+    </div> --}}
     <div id="receipt">
-        <a href="{{ route("kasir.order.downlaod", $order->id ) }}" class="btn-print">Cetak (.pdf)</a>
+        {{-- <a href="" class="btn-print">Cetak (.pdf)</a> --}}
         <center id="top">
             <div class="info">
                 <h2>Apotek Jaya Abadi</h2>
